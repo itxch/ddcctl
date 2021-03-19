@@ -60,6 +60,8 @@
 #define TOP_RIGHT_SCREEN_PURITY 0xE9
 #define BOTTOM_LEFT_SCREEN_PURITY 0xE8
 #define BOTTOM_RIGHT_SCREEN_PURITY 0xEB
+#define PBP 0xE9
+#define PBP_SCREEN 0xE8
 
 
 struct DDCWriteCommand

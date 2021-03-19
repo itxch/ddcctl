@@ -348,6 +348,18 @@ int main(int argc, const char * argv[])
                 if (i >= argc) break;
                 [actions setObject:@[@INPUT_SOURCE, [[NSString alloc] initWithUTF8String:argv[i]]] forKey:@"i"];
             }
+            
+            else if (!strcmp(argv[i], "-pbp")) {
+                i++;
+                if (i >= argc) break;
+                [actions setObject:@[@PBP, [[NSString alloc] initWithUTF8String:argv[i]]] forKey:@"pbp"];
+            }
+            
+            else if (!strcmp(argv[i], "-pbp-screen")) {
+                i++;
+                if (i >= argc) break;
+                [actions setObject:@[@PBP_SCREEN, [[NSString alloc] initWithUTF8String:argv[i]]] forKey:@"pbp-screen"];
+            }
 
             else if (!strcmp(argv[i], "-m")) {
                 i++;
