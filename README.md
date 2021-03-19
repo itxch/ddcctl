@@ -19,13 +19,24 @@ And _possibly_ (if your monitor firmware is well implemented):
 This is a fork I made to try and enable DPB mode (and select input) on a Dell U4919DW.
 And it works :)
 
-added two flags:
-| flag | args | description |
-| ------------- |-------------|
-| -pbp | 0-255 | this either enables or disables PBP mode. On my machine, 0 is off and 36 is on |
-| -pbp-screen | 0-255 | Selects the input, uses same values as Input Sources below |
+## Added two flags:
 
-# Install
+| VCP Code  | flag        | args  | description                                                                    |
+| --------- | ----------- | ----- | ------------------------------------------------------------------------------ |
+| E9 (0xE9) | -pbp        | 0-255 | This either enables or disables PBP mode. On my machine, 0 is off and 36 is on |
+| E8 (0xE8  | -pbp-screen | 0-255 | Selects the input, uses same values as Input Sources below                     |
+
+# How to Find your -pbp flag?
+
+1. Nagivate to the directory where ddcctl is.
+2. Ensure PBP mode is not on.
+3. Run `./ddctl -d 1 -D > normal.txt` - this will dump all the VCP codes into a text file
+4. Once it has stopped running enable PBP mode on your monitor, and hook up a 2nd device - make sure the 2nd device does not go to sleep
+5. On the first device in the same directory run `./ddctl -d 1 -D > pbp.txt` and wait for it to complete
+6. Go to [diffchecker](https://www.diffchecker.com/).
+7. Paste each of the respective files content into each side and press find differences
+8. It will show the VCP Codes that changed, i.e. responsible for enabling PBP mode.
+9. Now there is a matter of adding that flag to ddctl. If anyone actually reads this and wants help doing that, drop me a PM on twitter [@itxchh](https://twitter.com/itxchh)
 
 ## Download Binaries
 
