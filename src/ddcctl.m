@@ -106,6 +106,9 @@ void setControl(io_service_t framebuffer, uint control_id, uint new_value)
     if (!DDCWrite(framebuffer, &command)){
         MyLog(@"E: Failed to send DDC command!");
     }
+    
+    
+    
 #ifdef OSD
     if (useOsd) {
         NSString *OSDisplay = @"/Applications/OSDisplay.app/Contents/MacOS/OSDisplay";
@@ -260,7 +263,26 @@ int main(int argc, const char * argv[])
                 if (i >= argc) break;
                 displayId = atoi(argv[i]);
             }
-
+            
+            else if (!strcmp(argv[i], "-vcp")) {
+                i++;
+                if (i >= argc) break;
+                [actions setObject:@[[[NSString alloc] initWithUTF8String:argv[i]], [[NSString alloc] initWithUTF8String:argv[i+1]]] forKey:@"vcp"];
+                i++;
+            }
+            
+            else if (!strcmp(argv[i], "-pbp")) {
+                i++;
+                if (i >= argc) break;
+                [actions setObject:@[@PBP, [[NSString alloc] initWithUTF8String:argv[i]]] forKey:@"pbp"];
+            }
+            
+            else if (!strcmp(argv[i], "-pbp-screen")) {
+                i++;
+                if (i >= argc) break;
+                [actions setObject:@[@PBP_SCREEN, [[NSString alloc] initWithUTF8String:argv[i]]] forKey:@"pbp-screen"];
+            }
+            
             else if (!strcmp(argv[i], "-b")) {
                 i++;
                 if (i >= argc) break;
@@ -348,18 +370,7 @@ int main(int argc, const char * argv[])
                 if (i >= argc) break;
                 [actions setObject:@[@INPUT_SOURCE, [[NSString alloc] initWithUTF8String:argv[i]]] forKey:@"i"];
             }
-            
-            else if (!strcmp(argv[i], "-pbp")) {
-                i++;
-                if (i >= argc) break;
-                [actions setObject:@[@PBP, [[NSString alloc] initWithUTF8String:argv[i]]] forKey:@"pbp"];
-            }
-            
-            else if (!strcmp(argv[i], "-pbp-screen")) {
-                i++;
-                if (i >= argc) break;
-                [actions setObject:@[@PBP_SCREEN, [[NSString alloc] initWithUTF8String:argv[i]]] forKey:@"pbp-screen"];
-            }
+
 
             else if (!strcmp(argv[i], "-m")) {
                 i++;
@@ -477,7 +488,6 @@ int main(int argc, const char * argv[])
             NSInteger control_id = [valueArray[0] intValue];
             NSString *argval = valueArray[1];
             MyLog(@"D: action: %@: %@", argname, argval);
-
             if (control_id > -1) {
                 // this is a valid monitor control
                 NSString *argval_num = [argval stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"-+"]]; // look for relative setting ops
