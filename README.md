@@ -13,6 +13,7 @@ And _possibly_ (if your monitor firmware is well implemented):
 - rgb colors
 - color presets
 - reset
+- Also PBP mode.
 
 # PBP Mode
 
