@@ -4,6 +4,7 @@ Adjust your external monitors' built-in controls from the OSX shell:
 
 - brightness
 - contrast
+- PBP mode
 
 And _possibly_ (if your monitor firmware is well implemented):
 
@@ -13,7 +14,6 @@ And _possibly_ (if your monitor firmware is well implemented):
 - rgb colors
 - color presets
 - reset
-- Also PBP mode.
 
 # Added three flags:
 
