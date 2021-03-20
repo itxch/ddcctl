@@ -40,13 +40,6 @@ And it works :)
 8. It will show the VCP Codes that changed, i.e. responsible for enabling PBP mode.
 9. Now there is a matter of adding that flag to ddctl. If anyone actually reads this and wants help doing that, drop me a PM on twitter [@itxchh](https://twitter.com/itxchh)
 
-## Download Binaries
-
-Head to [Releases](https://github.com/kfix/ddcctl/releases) and from the
-[latest release](https://github.com/kfix/ddcctl/releases/latest) download
-[`ddcctl_binaries.zip`](https://github.com/kfix/ddcctl/releases/latest/download/ddcctl_binaries.zip)
-archive
-
 ## Build from Source
 
 - install Xcode
