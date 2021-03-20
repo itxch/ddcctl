@@ -17,11 +17,11 @@ And _possibly_ (if your monitor firmware is well implemented):
 
 # Added three flags:
 
-| VCP Code   | flag        | args            | description                                                                                                    |
-| ---------- | ----------- | --------------- | -------------------------------------------------------------------------------------------------------------- |
-| 233 (0xE9) | -pbp        | 0-255           | This either enables or disables PBP mode. On my machine, 0 is off and 36 is on                                 |
-| 232 (0xE8) | -pbp-screen | 0-255           | Selects the input, uses same values as Input Sources below                                                     |
-| N/A        | -vcp        | VCP code, Value | Sets the value a VCP code. Example `./ddctl -d 1 -vcp 233 36`. This would set the value of VCP code 233 to 36. |
+| VCP Code   | flag        | args                            | description                                                                                                    |
+| ---------- | ----------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| 233 (0xE9) | -pbp        | Value (0-255)                   | This either enables or disables PBP mode. On my machine, 0 is off and 36 is on                                 |
+| 232 (0xE8) | -pbp-screen | Value (0-255)                   | Selects the input, uses same values as Input Sources below                                                     |
+| N/A        | -vcp        | VCP code (0-255), Value (0-255) | Sets the value a VCP code. Example `./ddctl -d 1 -vcp 233 36`. This would set the value of VCP code 233 to 36. |
 
 # PBP Mode
 
