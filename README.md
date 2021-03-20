@@ -15,18 +15,18 @@ And _possibly_ (if your monitor firmware is well implemented):
 - reset
 - Also PBP mode.
 
-# PBP Mode
-
-This is a fork I made to try and enable DPB mode (and select input) on a Dell U4919DW.
-And it works :)
-
-## Added three flags:
+# Added three flags:
 
 | VCP Code  | flag        | args            | description                                                                                                    |
 | --------- | ----------- | --------------- | -------------------------------------------------------------------------------------------------------------- |
 | E9 (0xE9) | -pbp        | 0-255           | This either enables or disables PBP mode. On my machine, 0 is off and 36 is on                                 |
 | E8 (0xE8  | -pbp-screen | 0-255           | Selects the input, uses same values as Input Sources below                                                     |
 | N/A       | -vcp        | VCP code, Value | Sets the value a VCP code. Example `./ddctl -d 1 -vcp 233 36`. This would set the value of VCP code 233 to 36. |
+
+# PBP Mode
+
+This is a fork I made to try and enable DPB mode (and select input) on a Dell U4919DW.
+And it works :)
 
 # How to Find your -pbp flag?
 
