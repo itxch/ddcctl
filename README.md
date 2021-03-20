@@ -39,7 +39,12 @@ And it works :)
 6. Go to [diffchecker](https://www.diffchecker.com/).
 7. Paste each of the respective files content into each side and press find differences
 8. It will show the VCP Codes that changed, i.e. responsible for enabling PBP mode.
-9. Now there is a matter of adding that flag to ddctl. If anyone actually reads this and wants help doing that, drop me a PM on twitter [@itxchh](https://twitter.com/itxchh)
+9. Copy these codes and their respective values when PBP mode is enabled/disabled.
+10. Using the `-vcp` flag ddctl allows you to set values for specific VCP codes. It takes two arguments.
+    - The VCP code to change
+    - The value to set
+11. A command would look somethlike this: `./ddctl -d 1 -vcp 233 36`. The first value being the VCP code in decmimal and the second being the value to change it to.
+12. Using this command change the value of each VCP code from the list in step 9 one by one, till one of them enables PBP mode. Ensure that you change back any flags that do not enable PBP mode. This means there won't be unintended changes
 
 ## Build from Source
 
