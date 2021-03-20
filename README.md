@@ -28,6 +28,8 @@ And it works :)
 
 # How to Find your -pbp flag?
 
+**Only use these steps if using `-pbp 36` doesnt work.**
+
 1. Nagivate to the directory where ddcctl is.
 2. Ensure PBP mode is not on.
 3. Run `./ddctl -d 1 -D > normal.txt` - this will dump all the VCP codes into a text file
