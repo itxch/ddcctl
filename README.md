@@ -15,9 +15,9 @@ And *possibly* (if your monitor firmware is well implemented):
 
 # Install #
 ## Download Binaries ##
-Head to [Releases](https://github.com/kfix/ddcctl/releases) and from the
-[latest release](https://github.com/kfix/ddcctl/releases/latest) download
-[`ddcctl_binaries.zip`](https://github.com/kfix/ddcctl/releases/latest/download/ddcctl_binaries.zip)
+Head to [Releases](https://github.com/itxchh/ddcctl/releases) and from the
+[latest release](https://github.com/itxchh/ddcctl/releases/latest) download
+[`ddcctl_binaries.zip`](https://github.com/itxchh/ddcctl/releases/latest/download/ddcctl_binaries.zip)
 archive
 
 ## Build from Source ##
