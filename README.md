@@ -21,7 +21,7 @@ And _possibly_ (if your monitor firmware is well implemented):
 | ---------- | ----------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | 233 (0xE9) | -pbp        | Value (0-255)                   | This either enables or disables PBP mode. On my machine, 0 is off and 36 is on                                 |
 | 232 (0xE8) | -pbp-screen | Value (0-255)                   | Selects the input, uses same values as Input Sources below                                                     |
-| N/A        | -vcp        | VCP code (0-255), Value (0-255) | Sets the value a VCP code. Example `./ddctl -d 1 -vcp 233 36`. This would set the value of VCP code 233 to 36. |
+| N/A        | -vcp        | VCP code (0-255), Value (0-255) | Sets the value a VCP code. Example `./ddcctl -d 1 -vcp 233 36`. This would set the value of VCP code 233 to 36. |
 
 # PBP Mode
 
@@ -34,17 +34,17 @@ And it works :)
 
 1. Nagivate to the directory where ddcctl is.
 2. Ensure PBP mode is not on.
-3. Run `./ddctl -d 1 -D > normal.txt` - this will dump all the VCP codes into a text file
+3. Run `./ddcctl -d 1 -D > normal.txt` - this will dump all the VCP codes into a text file
 4. Once it has stopped running enable PBP mode on your monitor, and hook up a 2nd device - make sure the 2nd device does not go to sleep
-5. On the first device in the same directory run `./ddctl -d 1 -D > pbp.txt` and wait for it to complete
+5. On the first device in the same directory run `./ddcctl -d 1 -D > pbp.txt` and wait for it to complete
 6. Go to [diffchecker](https://www.diffchecker.com/).
 7. Paste each of the respective files content into each side and press find differences
 8. It will show the VCP Codes that changed, i.e. one of these will be responsible for enabling PBP mode.
 9. Copy these codes and their respective values when PBP mode is enabled/disabled.
-10. Using the `-vcp` flag ddctl allows you to set values for specific VCP codes. It takes two arguments.
+10. Using the `-vcp` flag ddcctl allows you to set values for specific VCP codes. It takes two arguments.
     - The VCP code to change
     - The value to set that VCP code to
-11. A command would look somethlike this: `./ddctl -d 1 -vcp 233 36`. The first value being the VCP code in decmimal and the second being the value to change it to.
+11. A command would look somethlike this: `./ddcctl -d 1 -vcp 233 36`. The first value being the VCP code in decmimal and the second being the value to change it to.
 12. Using this command change the value of each VCP code from the list in step 9 one by one, till one of them enables PBP mode. Ensure that you change back any flags that do not enable PBP mode, BEFORE MOVIGING ON TO THE NEXT FLAG This means there won't be unintended changes
 
 ## Build from Source
